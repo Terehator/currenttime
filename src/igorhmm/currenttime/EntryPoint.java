@@ -1,6 +1,6 @@
 package igorhmm.currenttime;
 
-/*
+/**
  * Entry point to software to get current time,
  * No input parameters from CL are used
  */
