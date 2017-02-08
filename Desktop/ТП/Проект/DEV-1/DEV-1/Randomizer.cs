@@ -11,10 +11,10 @@ namespace DEV_1
     {
         public static void outputRandomOptions(string[] options, int numberOfNeededOptions)
         {
-            ArrayList ArrayListOfOptions = new ArrayList(Parser.parseArrayToArrayList(options));
+            ArrayList ArrayListOfOptions = Parser.parseArrayToArrayList(options);
             string result = "";
             Random random = new Random();
-            try
+            if (ArrayListOfOptions.Count >= numberOfNeededOptions)
             {
                 for (int i = 0; i < numberOfNeededOptions; i++)
                 {
@@ -31,7 +31,7 @@ namespace DEV_1
                 }
                 Outputer.outputToConsole(result);
             }
-            catch (System.ArgumentOutOfRangeException ex)
+            else
             {
                 Outputer.outputToConsole("Too few arguments!!! You must input at least " + numberOfNeededOptions + " arguments.");
             }
