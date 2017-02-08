@@ -11,12 +11,7 @@ namespace DEV_1
     {
         public static ArrayList parseArrayToArrayList(string[] options)
         {
-            ArrayList result = new ArrayList();
-            foreach(string option in options)
-            {
-                result.Add(option);
-            }
-            return result;
+            return new ArrayList(options);
         }
     }
 }
