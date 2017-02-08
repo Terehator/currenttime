@@ -11,27 +11,27 @@ namespace DEV_1
     {
         public static void outputRandomOptions(string[] options, int numberOfNeededOptions)
         {
-            ArrayList arrayListOfOptions = Parser.parseArrayToArrayList(options);
+            ArrayList ArrayListOfOptions = Parser.parseArrayToArrayList(options);
             string result = "";
             Random random = new Random();
-            try
+            if (ArrayListOfOptions.Count >= numberOfNeededOptions)
             {
                 for (int i = 0; i < numberOfNeededOptions; i++)
                 {
-                    int randomIndex = random.Next(0, arrayListOfOptions.Count);
+                    int randomIndex = random.Next(0, ArrayListOfOptions.Count);
                     if (i == 0)
                     {
-                        result = result + arrayListOfOptions[randomIndex].ToString();
+                        result = result + ArrayListOfOptions[randomIndex].ToString();
                     }
                     else
                     {
-                        result = result + " " + arrayListOfOptions[randomIndex].ToString();
+                        result = result + " " + ArrayListOfOptions[randomIndex].ToString();
                     }
-                    arrayListOfOptions.RemoveAt(randomIndex);
+                    ArrayListOfOptions.RemoveAt(randomIndex);
                 }
                 Outputer.outputToConsole(result);
             }
-            catch (System.ArgumentOutOfRangeException ex)
+            else
             {
                 Outputer.outputToConsole("Too few arguments!!! You must input at least " + numberOfNeededOptions + " arguments.");
             }
