@@ -11,7 +11,7 @@ namespace DEV_1
     {
         public static void outputRandomOptions(string[] options, int numberOfNeededOptions)
         {
-            ArrayList arrayListOfOptions = new ArrayList(Parser.parseArrayToArrayList(options));
+            ArrayList arrayListOfOptions = Parser.parseArrayToArrayList(options);
             string result = "";
             Random random = new Random();
             try
