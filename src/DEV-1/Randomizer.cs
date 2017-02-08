@@ -11,23 +11,23 @@ namespace DEV_1
     {
         public static void outputRandomOptions(string[] options, int numberOfNeededOptions)
         {
-            ArrayList ArrayListOfOptions = new ArrayList(Parser.parseArrayToArrayList(options));
+            ArrayList arrayListOfOptions = new ArrayList(Parser.parseArrayToArrayList(options));
             string result = "";
             Random random = new Random();
             try
             {
                 for (int i = 0; i < numberOfNeededOptions; i++)
                 {
-                    int randomIndex = random.Next(0, ArrayListOfOptions.Count);
+                    int randomIndex = random.Next(0, arrayListOfOptions.Count);
                     if (i == 0)
                     {
-                        result = result + ArrayListOfOptions[randomIndex].ToString();
+                        result = result + arrayListOfOptions[randomIndex].ToString();
                     }
                     else
                     {
-                        result = result + " " + ArrayListOfOptions[randomIndex].ToString();
+                        result = result + " " + arrayListOfOptions[randomIndex].ToString();
                     }
-                    ArrayListOfOptions.RemoveAt(randomIndex);
+                    arrayListOfOptions.RemoveAt(randomIndex);
                 }
                 Outputer.outputToConsole(result);
             }
