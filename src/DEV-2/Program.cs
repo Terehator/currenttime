@@ -11,9 +11,9 @@ namespace DEV_2
         static void Main(string[] args)
         {
             LineGetter lineGetter = new LineGetter();
-            if (lineGetter.isLineGettingSuccesfull(args) == true)
+            if (lineGetter.isLineGettingSuccesfull(args) == true) //Try to get expression and handle it
             {
-                Counter counter = new Counter();
+                Counter counter = new Counter(); //If success, count the expression
                 Console.WriteLine(counter.count(lineGetter.getNumbers(), lineGetter.getSignes()));
             }
             Console.ReadKey();
