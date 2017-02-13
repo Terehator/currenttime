@@ -21,10 +21,23 @@ namespace DEV_2
         {
             return signes;
         }
+        private bool symbolIsSign(char symbol)
+        {
+            return signsSymbols.Contains(symbol);
+        }
+        private bool symbolIsNumber(char symbol)
+        {
+            return numberSymbols.Contains(symbol);
+        }
         private bool checkSignUsage(string line, int i)
         {
             if ((i != 0) && (i != line.Length - 1))
-                return ((signsSymbols.Contains(line[i])) && (signsSymbols.Contains(line[i - 1]) == false) && (line[i - 1] != 'e') && ((numberSymbols.Contains(line[i + 1])) || (line[i + 1] == '-')));
+            {
+                return (symbolIsSign(line[i])
+                    && !symbolIsSign(line[i - 1])
+                    && (line[i - 1] != 'e')
+                    && (symbolIsSign(line[i + 1]) || (line[i + 1] == '-'))); 
+            }
             else
                 return false;
         }

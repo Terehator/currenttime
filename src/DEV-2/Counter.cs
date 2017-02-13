@@ -9,38 +9,38 @@ namespace DEV_2
 {
     class Counter
     {
+        private void doOperation(List<float> numbers, ArrayList signes, char sign)
+        {
+            while (signes.IndexOf(sign) != -1)
+            {
+                int index = signes.IndexOf(sign);
+                switch (sign)
+                {
+                    case '*':
+                        numbers[index] = numbers[index] * numbers[index + 1];
+                        break;
+                    case '/':
+                        numbers[index] = numbers[index] / numbers[index + 1];
+                        break;
+                    case '-':
+                        numbers[index] = numbers[index] - numbers[index + 1];
+                        break;
+                    case '+':
+                        numbers[index] = numbers[index] + numbers[index + 1];
+                        break;
+                }
+                numbers.RemoveAt(index + 1);
+                signes.RemoveAt(index);
+            }
+        }
         public float count(List<float> numbers, ArrayList signes)
         {
             try
             {
-                while (signes.IndexOf('*') != -1)
-                {
-                    int index = signes.IndexOf('*');
-                    numbers[index] = numbers[index] * numbers[index + 1];
-                    numbers.RemoveAt(index + 1);
-                    signes.RemoveAt(index);
-                }
-                while (signes.IndexOf('/') != -1)
-                {
-                    int index = signes.IndexOf('/');
-                    numbers[index] = numbers[index] / numbers[index + 1];
-                    numbers.RemoveAt(index + 1);
-                    signes.RemoveAt(index);
-                }
-                while (signes.IndexOf('+') != -1)
-                {
-                    int index = signes.IndexOf('+');
-                    numbers[index] = numbers[index] + numbers[index + 1];
-                    numbers.RemoveAt(index + 1);
-                    signes.RemoveAt(index);
-                }
-                while (signes.IndexOf('-') != -1)
-                {
-                    int index = signes.IndexOf('-');
-                    numbers[index] = numbers[index] - numbers[index + 1];
-                    numbers.RemoveAt(index + 1);
-                    signes.RemoveAt(index);
-                }
+                doOperation(numbers, signes, '*');
+                doOperation(numbers, signes, '/');
+                doOperation(numbers, signes, '-');
+                doOperation(numbers, signes, '+');
             }
             catch (OverflowException)
             {
