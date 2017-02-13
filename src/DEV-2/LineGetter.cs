@@ -131,10 +131,7 @@ namespace DEV_2
             }
             else
             {
-                foreach (string arg in args)
-                {
-                    line = line + arg;
-                }
+                line = String.Join(" ", args);
                 if (isParseble(line) == false)
                 {
                     return false;
