@@ -36,7 +36,7 @@ namespace DEV_2
                 return (symbolIsSign(line[i])
                     && !symbolIsSign(line[i - 1])
                     && (line[i - 1] != 'e')
-                    && (symbolIsSign(line[i + 1]) || (line[i + 1] == '-'))); 
+                    && (symbolIsNumber(line[i + 1]) || (line[i + 1] == '-'))); 
             }
             else
                 return false;
