@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_3
 {
@@ -22,6 +19,8 @@ namespace DEV_3
             while (!checker.isNameCorrect(temp));
             return temp;
         }
+
+
         private string inputSurname(Checker checker)
         {
             string temp;
@@ -33,6 +32,8 @@ namespace DEV_3
             while (!checker.isNameCorrect(temp));
             return temp;
         }
+        
+        
         private string inputGender(Checker checker)
         {
             string temp;
@@ -44,6 +45,8 @@ namespace DEV_3
             while (!checker.isGenderCorrect(temp)); //Checking rules for name and surname are the same
             return temp;
         }
+        
+        
         private int inputAge(Checker checker)
         {
             string temp;
@@ -55,6 +58,8 @@ namespace DEV_3
             while (!checker.isAgeCorrect(int.Parse(temp))); //Checking rules for name and surname are the same
             return int.Parse(temp);
         }
+        
+        
         private User inputUser(Checker checker)
         {
             User user = new User();
@@ -64,6 +69,8 @@ namespace DEV_3
             user.setAge(inputAge(checker));
             return user;
         }
+        
+        
         public List<User> inputListOfUsers(Checker checker)
         {
             List<User> usersList = new List<User>();
@@ -73,8 +80,7 @@ namespace DEV_3
                 usersList.Add(inputUser(checker));
                 Console.WriteLine("To finish the input type 'exit', else type any key");
                 answer = Console.ReadLine();
-            }
-            while (answer != "exit");
+            } while (answer != "exit");
             return usersList;
         }
     }

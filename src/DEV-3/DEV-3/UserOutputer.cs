@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_3
 {
@@ -16,6 +13,8 @@ namespace DEV_3
             Console.WriteLine("Gender: " + user.getGender());
             Console.WriteLine("Age: " + user.getAge());
         }
+        
+        
         public void outputListOfUsers(List<User> listOfUsers)
         {
             foreach (User user in listOfUsers)

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_3
 {
@@ -15,6 +13,8 @@ namespace DEV_3
             else
                 return false;
         }
+
+
         public bool isGenderCorrect(string gender)
         {
             if (gender == "male" || gender == "female")
@@ -22,6 +22,8 @@ namespace DEV_3
             else
                 return false;
         }
+        
+        
         public bool isAgeCorrect(int age)
         {
             if (age >= 0 && age <= 100)
