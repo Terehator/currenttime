@@ -12,7 +12,12 @@ namespace DEV_3
         public string findMostPopularWomanName(List<User> listOfUsers)
         {
             List<User> females = listOfUsers.Where(user => user.getGender() == "female").ToList();
-            return listOfUsers.GroupBy(user => user.getName()).OrderBy(users => users.Count()).Last().Key;
+            UserOutputer o = new UserOutputer();
+            o.outputListOfUsers(females);
+            if (females.Count == 0)
+                return "no females";
+            else
+                return females.GroupBy(user => user.getName()).OrderBy(users => users.Count()).Last().Key;
         }
     }
 }
