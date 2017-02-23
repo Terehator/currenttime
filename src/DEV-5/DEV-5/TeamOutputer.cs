@@ -12,7 +12,7 @@ namespace DEV_5
         {
             if (builder == null)
             {
-                Console.WriteLine("Nothing has been choosen");
+                Console.WriteLine("Nothing was selected");
             }
             else
             {

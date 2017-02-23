@@ -40,7 +40,7 @@ namespace DEV_5
             for (int i = newQl.Count - 1; i >= 0; i--)
             {
                 team.Add(newQl[i], 0);
-                while (productivity - currentProductivity >= 0)
+                while (productivity - currentProductivity >= newQl[i].Productivity && productivity - currentProductivity >= 0)
                 {
                     team[newQl[i]]++;
                     currentProductivity += newQl[i].Productivity;

@@ -24,19 +24,37 @@ namespace DEV_5
                 case "0": 
                 {
                     Console.WriteLine("Input salary");
-                    int salary = int.Parse(Console.ReadLine());
+                    string input = Console.ReadLine();
+                    int salary = 0;
+                    while (!int.TryParse(input, out salary) || salary < 0)
+                    {
+                        Console.WriteLine("Not allowed format");
+                        input = Console.ReadLine();
+                    }
                     return new TeamBuilderBySalary(salary);
                 }
                 case "1": 
                 {
                     Console.WriteLine("Input productivity");
-                    int productivity = int.Parse(Console.ReadLine());
+                    string input = Console.ReadLine();
+                    int productivity = 0;
+                    while (!int.TryParse(input, out productivity) || productivity < 0)
+                    {
+                        Console.WriteLine("Not allowed format");
+                        input = Console.ReadLine();
+                    }
                     return new TeamBuilderByProductivity(productivity);
                 }
                 case "2": 
                 {
                     Console.WriteLine("Input productivity");
-                    int productivity = int.Parse(Console.ReadLine());
+                    string input = Console.ReadLine();
+                    int productivity = 0;
+                    while (!int.TryParse(input, out productivity) || productivity < 0)
+                    {
+                        Console.WriteLine("Not allowed format");
+                        input = Console.ReadLine();
+                    } 
                     return new TeamBuilderByQualification(productivity);
                 }
                 default:
