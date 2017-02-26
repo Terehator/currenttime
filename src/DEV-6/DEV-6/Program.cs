@@ -11,8 +11,11 @@ namespace DEV_6
         static void Main(string[] args)
         {
             FormatGetter formatGetter = new FormatGetter();
-            formatGetter.Get();
-            Console.WriteLine(formatGetter.Get());
+            DateTime currentDateTime = new DateTime();
+            currentDateTime = DateTime.Now;
+            DateTimeOutputer outputer = new DateTimeOutputer();
+            outputer.Output(currentDateTime, formatGetter.Get());
+            Console.ReadKey();
         }
     }
 }

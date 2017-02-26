@@ -8,12 +8,12 @@ namespace DEV_6
 {
     class FormatGetter
     {
-        string allowedSymbols = "hmsfydM:";
-        public LinkedList<string> Get()
+        string allowedSymbols = "hmsydM:";
+        public List<string> Get()
         {
             string inputedLine = Console.ReadLine();
-            LinkedList<string> result = new LinkedList<string>();
-            string tempFormat = "";
+            List<string> result = new List<string>();
+            string tempFormat = string.Empty;
             foreach (char symbol in inputedLine)
             {
                 if (!allowedSymbols.Contains(symbol))
@@ -23,9 +23,10 @@ namespace DEV_6
                 }
                 else
                 {
-                    if (symbol.Equals(':') && !string.IsNullOrEmpty(tempFormat))
+                    if (((inputedLine.Last() == symbol) || (symbol == ':')) && !string.IsNullOrEmpty(tempFormat))
                     {
-                        result.AddLast(tempFormat);
+                        result.Add(tempFormat);
+                        tempFormat = string.Empty;
                     }
                     else
                     {
