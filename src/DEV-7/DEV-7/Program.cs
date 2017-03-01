@@ -10,6 +10,13 @@ namespace DEV_6
     {
         static void Main(string[] args)
         {
+            DateTimeParser dp = new DateTimeParser();
+            Date date = new Date();
+            Time time = new Time();
+            dp.Parse(time, date);
+            DateTimeValidator dv = new DateTimeValidator(); 
+            Console.WriteLine(dv.Validate(date, time));
+
         }
     }
 }
