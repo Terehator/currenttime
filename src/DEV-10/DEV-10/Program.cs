@@ -22,6 +22,9 @@ namespace DEV_10
                 confReader.getFilepathes(CONF_FILEPATH, parser, ref inputFilepath, ref outputFilepath);
                 OrderReader reader = new OrderReader();
                 List<Order> list = reader.Read(inputFilepath, parser);
+                JSONBuilder builder = new JSONBuilder();
+                OrderWriter writer = new OrderWriter();
+                writer.Write(list, outputFilepath, builder);
             }
             catch (FileNotFoundException)
             {

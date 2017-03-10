@@ -22,13 +22,6 @@ namespace DEV_10
             string finishPattern = @"^\s*\}\s*,?\s*$";
             return Regex.IsMatch(line, finishPattern);
         }
-        public bool IsParametr(string line)
-        {
-            string parametrBeginPattern = string.Concat(@"^\s*", '"', "*.", '"', @"\s*:\s*", '"', "?");
-            string parametrFinishPattern = string.Concat('"', @"?\s*,?\s*$");
-            return (Regex.IsMatch(line, parametrFinishPattern) &&
-                    Regex.IsMatch(line, parametrBeginPattern));
-        }
         public bool IsCurrentParametr(string line, string parametr)
         {
             string parametrBeginPattern = string.Concat(@"^\s*", '"', parametr, '"', @"\s*:\s*", '"', "?");
@@ -45,14 +38,6 @@ namespace DEV_10
         {
             string endOfEnumPattern = @"^\s*\]\s*,?\s*$";
             return (Regex.IsMatch(line, endOfEnumPattern));
-        }
-        public string GetParametrName(string line)
-        {
-            string parametrBeginPattern = string.Concat(@"^\s*", '"');
-            string parametrFinishPattern = string.Concat('"', @"\s*:\s*", '"', "?",'"', @"?\s*,?\s*$");
-            string result = Regex.Replace(line, parametrBeginPattern, string.Empty);
-            result = Regex.Replace(line, parametrFinishPattern, string.Empty);
-            return result;
         }
         public string GetValueByParametr(string line, string parametr)
         {
