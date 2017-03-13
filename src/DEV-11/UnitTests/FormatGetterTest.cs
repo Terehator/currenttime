@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using DEV_6;
 
 namespace UnitTests
 {
@@ -16,6 +17,7 @@ namespace UnitTests
             list.Add("mm");
             CollectionAssert.AreEqual(list, getter.Get("hh:mm"));
         }
+
         [TestMethod]
         [ExpectedException(typeof(FormatException),
         "Not allowed format")]
@@ -24,10 +26,11 @@ namespace UnitTests
             FormatGetter getter = new FormatGetter();
             List<string> list = getter.Get("hhs:mm");
         }
+
         [TestMethod]
         [ExpectedException(typeof(FormatException),
         "Empty line")]
-        public void GetInvalidInputTest()
+        public void GetEmptyInputTest()
         {
             FormatGetter getter = new FormatGetter();
             List<string> list = getter.Get(string.Empty);

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DEV_6;
 
 namespace UnitTests
 {
@@ -11,29 +12,34 @@ namespace UnitTests
         {
             DateTime dateTime = new DateTime(1997, 3, 12);
             MonthGetter getter = new MonthGetter();
-            Assert.AreEqual(getter.Get("M", dateTime), "3");
+            Assert.AreEqual("3", getter.Get("M", dateTime));
         }
+
         [TestMethod]
         public void Get2mTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 12);
             MonthGetter getter = new MonthGetter();
-            Assert.AreEqual(getter.Get("MM", dateTime), "03");
+            Assert.AreEqual("03", getter.Get("MM", dateTime));
         }
+
         [TestMethod]
         public void Get3mTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 12);
             MonthGetter getter = new MonthGetter();
-            Assert.AreEqual(getter.Get("MMM", dateTime), "Mar");
+            Assert.AreEqual("Mar", getter.Get("MMM", dateTime));
         }
+
         [TestMethod]
         public void Get4mTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 12);
             MonthGetter getter = new MonthGetter();
-            Assert.AreEqual(getter.Get("MMMM", dateTime), "March");
+            Assert.AreEqual("March", getter.Get("MMMM", dateTime));
         }
+
+        [TestMethod]
         public void GetManyMTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 12);

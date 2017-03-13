@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DEV_6;
 
 namespace UnitTests
 {
@@ -11,14 +12,18 @@ namespace UnitTests
         {
             DateTime dateTime = new DateTime(1997, 3, 3);
             DayGetter getter = new DayGetter();
-            Assert.AreEqual(getter.Get("d", dateTime), "3");
+            Assert.AreEqual("3", getter.Get("d", dateTime));
         }
+
+        [TestMethod]
         public void Get2dTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 3);
             DayGetter getter = new DayGetter();
-            Assert.AreEqual(getter.Get("dd", dateTime), "03");
+            Assert.AreEqual("03", getter.Get("dd", dateTime));
         }
+
+        [TestMethod]
         public void GetManyDTest()
         {
             DateTime dateTime = new DateTime(1997, 3, 3);

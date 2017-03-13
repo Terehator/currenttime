@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DEV-6;
+using DEV_6;
 
 namespace UnitTests
 {
@@ -12,22 +12,25 @@ namespace UnitTests
         {
             DateTime dateTime = new DateTime(1997,12,12);
             YearGetter yearGetter = new YearGetter();
-            Assert.AreEqual(yearGetter.Get("yy", dateTime), "97");
+            Assert.AreEqual("97", yearGetter.Get("yy", dateTime));
         }
+
         [TestMethod]
         public void Get3yTest()
         {
             DateTime dateTime = new DateTime(1997,12,12);
             YearGetter yearGetter = new YearGetter();
-            Assert.AreEqual(yearGetter.Get("yyy", dateTime), "997");
+            Assert.AreEqual("997", yearGetter.Get("yyy", dateTime));
         }
+
         [TestMethod]
         public void Get4yTest()
         {
             DateTime dateTime = new DateTime(1997,12,12);
             YearGetter yearGetter = new YearGetter();
-            Assert.AreEqual(yearGetter.Get("yyyy", dateTime), "1997");
+            Assert.AreEqual("1997", yearGetter.Get("yyyy", dateTime));
         }
+
         [TestMethod]
         public void GetManyYTest()
         {
