@@ -15,7 +15,7 @@ namespace DEV_6
             currentDateTime = DateTime.Now;
             DateTimeOutputer outputer = new DateTimeOutputer();
             string inputedLine = Console.ReadLine();
-            outputer.Output(inputedLine, currentDateTime, formatGetter.Get(inputedLine));
+            Console.WriteLine(outputer.Output(inputedLine, currentDateTime, formatGetter.Get(inputedLine)));
             Console.ReadKey();
         }
     }
