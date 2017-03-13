@@ -8,7 +8,7 @@ namespace DEV_6
 {
     class DateTimeOutputer
     {
-        public void Output(string startLine, DateTime currentTime, List<string> formats)
+        public string Output(string startLine, DateTime currentTime, List<string> formats)
         {
             string result = string.Copy(startLine);
             foreach (string format in formats)
@@ -53,7 +53,7 @@ namespace DEV_6
                         }
                 }
             }
-            Console.WriteLine(result);
+            return result;
         }
     }
 }
