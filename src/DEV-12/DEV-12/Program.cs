@@ -12,14 +12,13 @@ namespace DEV_12
         {
             try
             {
-                ColorParser colorParser = new ColorParser();
+                Parser parser = new Parser();
                 Console.WriteLine("Input color of checker(black or white)");
-                char color = colorParser.Parse(Console.ReadLine());
-                CoordinateParser coorParser = new CoordinateParser();
+                char color = parser.ParseColor(Console.ReadLine());
                 Console.WriteLine("Input start coordinate");
-                Tuple<int, int> start = coorParser.Parse(Console.ReadLine());
+                Coordinate start = parser.ParseCheckerCoordinate(Console.ReadLine());
                 Console.WriteLine("Input finish coordinate");
-                Tuple<int, int> finish = coorParser.Parse(Console.ReadLine());
+                Coordinate finish = parser.ParseCheckerCoordinate(Console.ReadLine());
                 StepsCounter stepsCounter = new StepsCounter();
                 Console.WriteLine(stepsCounter.Count(color, start, finish));
             }

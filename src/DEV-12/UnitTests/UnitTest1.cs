@@ -10,36 +10,36 @@ namespace UnitTests
         [TestMethod]
         public void ColorParser_UppercaseInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            Assert.AreEqual('b', cp.Parse("Black"));
+            Parser cp = new Parser();
+            Assert.AreEqual('b', cp.ParseColor("Black"));
         }
 
         [TestMethod]
         public void ColorParser_whiteLowercaseInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            Assert.AreEqual('w', cp.Parse("white"));
+            Parser cp = new Parser();
+            Assert.AreEqual('w', cp.ParseColor("white"));
         }
 
         [TestMethod]
         public void ColorParser_blackLowercaseInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            Assert.AreEqual('b', cp.Parse("black"));
+            Parser cp = new Parser();
+            Assert.AreEqual('b', cp.ParseColor("black"));
         }
 
         [TestMethod]
         public void ColorParser_whiteOneSymbolInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            Assert.AreEqual('w', cp.Parse("w"));
+            Parser cp = new Parser();
+            Assert.AreEqual('w', cp.ParseColor("w"));
         }
         
         [TestMethod]
         public void ColorParser_blackOneSymbolInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            Assert.AreEqual('b', cp.Parse("b"));
+            Parser cp = new Parser();
+            Assert.AreEqual('b', cp.ParseColor("b"));
         }
         
         [TestMethod]
@@ -47,29 +47,29 @@ namespace UnitTests
             "Wrong format of color")]
         public void ColorParser_InvalidInput_Test()
         {
-            ColorParser cp = new ColorParser();
-            cp.Parse("sax");
+            Parser cp = new Parser();
+            cp.ParseColor("sax");
         }
 
         [TestMethod]
         public void CoordinateParser_InputWithSpaces_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            Assert.AreEqual(new Tuple<int, int>(1,1), cp.Parse("    a    1    "));
+            Parser cp = new Parser();
+            Assert.AreEqual(new Coordinate(1, 1), cp.ParseCheckerCoordinate("    a    1    "));
         }
 
         [TestMethod]
         public void CoordinateParser_InputWithOutSpaces_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            Assert.AreEqual(new Tuple<int, int>(1, 1), cp.Parse("a1"));
+            Parser cp = new Parser();
+            Assert.AreEqual(new Coordinate(1, 1), cp.ParseCheckerCoordinate("a1"));
         }
         
         [TestMethod]
         public void CoordinateParser_InputUppercase_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            Assert.AreEqual(new Tuple<int, int>(1, 1), cp.Parse("A1"));
+            Parser cp = new Parser();
+            Assert.AreEqual(new Coordinate(1, 1), cp.ParseCheckerCoordinate("A1"));
         }
         
         [TestMethod]
@@ -77,8 +77,8 @@ namespace UnitTests
             "Only black fields are allowed")]
         public void CoordinateParser_InputWhiteField_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("a2");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("a2");
         }
         
         [TestMethod]
@@ -86,8 +86,8 @@ namespace UnitTests
             "Wrong format of coordinate")]
         public void CoordinateParser_InputNotLetter_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("22");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("22");
         }
         
         [TestMethod]
@@ -95,15 +95,15 @@ namespace UnitTests
             "Wrong format of coordinate")]
         public void CoordinateParser_InputLaterLetter_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("i2");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("i2");
         }
         
         [TestMethod]
         public void CoordinateParser_InputH_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            Assert.AreEqual(new Tuple<int, int>(8,2), cp.Parse("h2"));
+            Parser cp = new Parser();
+            Assert.AreEqual(new Coordinate(8,2), cp.ParseCheckerCoordinate("h2"));
         }
         
         [TestMethod]
@@ -111,8 +111,8 @@ namespace UnitTests
             "Wrong format of coordinate")]
         public void CoordinateParser_InputLetterExceptDigit_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("aa");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("aa");
         }
         
         [TestMethod]
@@ -120,8 +120,8 @@ namespace UnitTests
             "Wrong format of coordinate")]
         public void CoordinateParser_InputLaterDigit_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("i9");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("i9");
         }
         
         [TestMethod]
@@ -129,29 +129,29 @@ namespace UnitTests
             "Wrong format of coordinate")]
         public void CoordinateParser_InputEarlierDigit_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            cp.Parse("i0");
+            Parser cp = new Parser();
+            cp.ParseCheckerCoordinate("i0");
         }
         
         [TestMethod]
         public void CoordinateParser_Input8_Test()
         {
-            CoordinateParser cp = new CoordinateParser();
-            Assert.AreEqual(new Tuple<int, int>(8, 8), cp.Parse("h8"));
+            Parser cp = new Parser();
+            Assert.AreEqual(new Coordinate(8, 8), cp.ParseCheckerCoordinate("h8"));
         }
 
         [TestMethod]
         public void StepsCounter_BlackReachableField_Test()
         {
             StepsCounter sc = new StepsCounter();
-            Assert.AreEqual(5, sc.Count('b', new Tuple<int,int>(5, 7), new Tuple<int,int>(6, 2)));
+            Assert.AreEqual(5, sc.Count('b', new Coordinate(5, 7), new Coordinate(6, 2)));
         }
 
         [TestMethod]
         public void StepsCounter_WhiteReachableField_Test()
         {
             StepsCounter sc = new StepsCounter();
-            Assert.AreEqual(5, sc.Count('w', new Tuple<int, int>(6, 2), new Tuple<int, int>(5, 7)));
+            Assert.AreEqual(5, sc.Count('w', new Coordinate(6, 2), new Coordinate(5, 7)));
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@ namespace UnitTests
         public void StepsCounter_BlackFieldIsOnTheBack_Test()
         {
             StepsCounter sc = new StepsCounter();
-            sc.Count('b', new Tuple<int, int>(6, 2), new Tuple<int, int>(5, 7));
+            sc.Count('b', new Coordinate(6, 2), new Coordinate(5, 7));
         }
 
         [TestMethod]
@@ -169,7 +169,7 @@ namespace UnitTests
         public void StepsCounter_WhiteFieldIsOnTheBack_Test()
         {
             StepsCounter sc = new StepsCounter();
-            sc.Count('w', new Tuple<int,int>(5, 7), new Tuple<int,int>(6, 2));
+            sc.Count('w', new Coordinate(5, 7), new Coordinate(6, 2));
         }
 
         [TestMethod]
@@ -178,7 +178,7 @@ namespace UnitTests
         public void StepsCounter_BlackUnreachableField_Test()
         {
             StepsCounter sc = new StepsCounter();
-            sc.Count('b', new Tuple<int, int>(5, 7), new Tuple<int, int>(8, 6));
+            sc.Count('b', new Coordinate(5, 7), new Coordinate(8, 6));
         }
 
         [TestMethod]
@@ -187,7 +187,7 @@ namespace UnitTests
         public void StepsCounter_WhiteUnreachableField_Test()
         {
             StepsCounter sc = new StepsCounter();
-            sc.Count('w', new Tuple<int,int>(6, 2), new Tuple<int,int>(2, 4));
+            sc.Count('w', new Coordinate(6, 2), new Coordinate(2, 4));
         }
     }
 }

@@ -17,12 +17,12 @@ namespace DEV_12
         /// <param name="start"></param>
         /// <param name="finish"></param>
         /// <returns></returns>
-        private int CountForWhite(Tuple<int, int> start, Tuple<int, int> finish)
+        private int CountForWhite(Coordinate start, Coordinate finish)
         {
-            if (finish.Item1 + finish.Item2 >= start.Item1 + start.Item2 &&
-                finish.Item1 - finish.Item2 <= start.Item1 - start.Item2 &&
-                finish.Item2 >= start.Item2)
-                return Math.Abs(finish.Item2 - start.Item2);
+            if (finish.X + finish.Y >= start.X + start.Y &&
+                finish.X - finish.Y <= start.X - start.Y &&
+                finish.Y >= start.Y)
+                return Math.Abs(finish.Y - start.Y);
             else
                 throw new ArgumentException("Not reachable field");
         }
@@ -32,12 +32,12 @@ namespace DEV_12
         /// <param name="start"></param>
         /// <param name="finish"></param>
         /// <returns></returns>
-        private int CountForBlack(Tuple<int, int> start, Tuple<int, int> finish)
+        private int CountForBlack(Coordinate start, Coordinate finish)
         {
-            if (finish.Item1 + finish.Item2 <= start.Item1 + start.Item2 &&
-                finish.Item1 - finish.Item2 >= start.Item1 - start.Item2 &&
-                finish.Item2 <= start.Item2)
-                return Math.Abs(finish.Item2 - start.Item2);
+            if (finish.X + finish.Y <= start.X + start.Y &&
+                finish.X - finish.Y >= start.X - start.Y &&
+                finish.Y <= start.Y)
+                return Math.Abs(finish.Y - start.Y);
             else
                 throw new ArgumentException("Not reachable field");
         }
@@ -48,7 +48,7 @@ namespace DEV_12
         /// <param name="start"></param>
         /// <param name="finish"></param>
         /// <returns></returns>
-        public int Count(char color, Tuple<int, int> start, Tuple<int, int> finish)
+        public int Count(char color, Coordinate start, Coordinate finish)
         {
             if (color == 'w')
                 return CountForWhite(start, finish);
