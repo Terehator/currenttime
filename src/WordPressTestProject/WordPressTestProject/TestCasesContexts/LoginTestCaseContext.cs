@@ -10,7 +10,7 @@ namespace WordPressTestProject
     class LoginTestCaseContext : DbContext
     {
         public LoginTestCaseContext()
-            :base("DbConnection")
+            :base("DBConnection")
         { }
           
         public DbSet<LoginTestCase> LoginTestCases { get; set; }
